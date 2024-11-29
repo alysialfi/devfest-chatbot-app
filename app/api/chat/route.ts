@@ -8,7 +8,7 @@ export async function POST(req: Request) {
   data.append({ test: "initialized calls" });
 
   const result = streamText({
-    model: google("models/gemini-1.5-flash"),
+    model: google("models/gemini-1.5-pro"),
     system: "You are a helpful assistant.",
     messages,
   });
