@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image";
-import Link from 'next/link'
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 
 const menus = [
@@ -51,26 +53,44 @@ const menus = [
         position: 'self-end rotate-12',
         link: '/apa-lu-cari-gua-ada'
     }
-] 
+]
 export default function Home() {
-  return (
-    <div
-      className={`w-screen h-screen overflow-hidden font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex w-full h-full">
-        <div className="w-full grid grid-cols-3">
-          {
-            menus.map((menu, id) => {
-              return <Link href={menu.link}>
-                <div key={id} className={`bg-[${menu.color}] grid place-items-center h-full w-full`} style={{backgroundColor: menu.color}}>
-                    <p className="text-xl text-gray-800">{menu.title}</p>
-                    <Image src={menu.icon} alt={menu.icon} width={menu.width} height={150} className={`${menu.position}`}></Image>
+
+    const router = useRouter();
+    const [activeBox, setActiveBox] = useState<number | null>(null);
+
+    const handleClick = (id: number, href: string) => {
+        setActiveBox(id);
+        setTimeout(() => {
+            router.push(href);
+        }, 500);
+    };
+
+    return (
+        <div className="w-screen h-screen overflow-hidden font-[family-name:var(--font-geist-sans)]">
+            <main className="flex w-full h-full">
+                <div className="w-full grid grid-cols-3">
+                {menus.map((menu, id) => (
+                    <div
+                    key={id}
+                    onClick={() => handleClick(id, menu.link)}
+                    className={`grid place-items-center h-full w-full relative transition-transform duration-[1500ms] cursor-pointer ${
+                        activeBox === id ? 'scale-[50] rounded-full z-50' : ''
+                    }`}
+                    style={{ backgroundColor: menu.color }}
+                    >
+                    <p className={`text-xl text-gray-800 ${activeBox === id ? 'hidden' : 'block'}`}>{menu.title}</p>
+                    <Image
+                        src={menu.icon}
+                        alt={menu.icon}
+                        width={menu.width}
+                        height={150}
+                        className={`${menu.position} ${activeBox === id ? 'hidden' : 'block'}`}
+                    />
+                    </div>
+                ))}
                 </div>
-              </Link>
-            })
-          }
+            </main>
         </div>
-      </main>
-    </div>
-  );
+    );
 }
