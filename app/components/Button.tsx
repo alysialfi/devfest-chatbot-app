@@ -12,7 +12,7 @@ type Message = {
 type ButtonProps = {
     prompts: Array<{key: string, prompt: string}>;
     isContinuation?: boolean;
-    setMessages: React.Dispatch<React.SetStateAction<Message>> | ((val: String[]) => void);
+    setMessages: React.Dispatch<React.SetStateAction<Message>> | ((val: Array<{role: string; content: string}>) => void);
     setIsGenerating?: (val: boolean) => void;
     withCopy: boolean;
 }
