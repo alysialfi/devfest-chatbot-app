@@ -63,7 +63,7 @@ export default function Home() {
         setActiveBox(id);
         setTimeout(() => {
             router.push(href);
-        }, 500);
+        }, 400);
     };
 
     return (
