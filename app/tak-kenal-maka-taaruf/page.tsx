@@ -6,8 +6,8 @@ export default function Page() {
       <div className="w-1/2 flex flex-col gap-4 justify-center px-44">
         <div className="font-medium text-3xl">Alysia Alfi</div>
         <div className="text-xl">
-            a developer currently enjoy slow living in Yogyakarta. Sometimes do front-end, back-end, cloud, or whatever you ask her to do. “You never know until you try” is her ultimate motto.
-            <br/><br/>if you find her messed up, please show her some random cat videos on internet and tell her to drink less sugar, oat/soy based iced coffee.
+            a developer currently enjoys slow living in Yogyakarta. Sometimes she does front-end, back-end, cloud, or whatever you ask her to do. “You never know until you try” is her ultimate motto.
+            <br/><br/>if you find her messed up, please show her some random cat videos on the internet and tell her to drink less sugar oat/soy-based iced coffee.
         </div>
         <div className="mt-4 flex flex-col gap-1.5">
             <a href="https://www.linkedin.com/in/alysialfi/" target="_blank" className="flex gap-1 items-center">
