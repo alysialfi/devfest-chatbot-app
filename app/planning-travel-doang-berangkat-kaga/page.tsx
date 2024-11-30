@@ -78,12 +78,12 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-            <div className={`bg-orange-a w-screen min-h-screen p-16`}>
+            <div className={`bg-orange-a w-screen min-h-screen p-8 md:p-16`}>
                 <div className="flex justify-end">
                     <ButtonModal setIsModalOpen={setIsGenerating}/>
                 </div>
                 <div className="w-full h-full flex flex-col justify-center items-center">
-                    <div className={`${isGenerating ? 'flex' : 'hidden'} mt-4 w-full grid grid-cols-2 gap-4 text-left`}>
+                    <div className={`${isGenerating ? 'flex' : 'hidden'} mt-4 w-full grid grid-cols-1 md:grid-cols-2 gap-4 text-left`}>
                         {Object.keys(messages).map((key) => (
                             <div key={key} className="mt-4 bg-white rounded-md p-8">
                                 <h3 className="font-bold capitalize">{key}:</h3>

@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <div className="flex w-screen h-screen bg-pink-a">
-      <div className="w-1/2 flex flex-col gap-4 justify-center px-44">
+    <div className="flex flex-col md:flex-row w-screen h-screen bg-pink-a">
+      <div className="w-full md:w-1/2 h-2/3 md:h-full flex flex-col gap-4 justify-center px-8 md:px-44">
         <div className="font-medium text-3xl">Alysia Alfi</div>
         <div className="text-xl">
             a developer currently enjoys slow living in Yogyakarta. Sometimes she does front-end, back-end, cloud, or whatever you ask her to do. “You never know until you try” is her ultimate motto.
@@ -30,8 +30,8 @@ export default function Page() {
             </a>
         </div>
       </div>
-      <div className="w-1/2 relative">
-        <Image src="/about.svg" alt="smilling NPC" width={600} height={300} className="absolute right-0 bottom-0"></Image>
+      <div className="w-full md:w-1/2 h-1/3 md:h-full relative">
+        <Image src="/about.svg" alt="smilling NPC" width={600} height={300} className="absolute right-0 bottom-0 w-3/4"></Image>
       </div>
     </div>
   )

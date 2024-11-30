@@ -6,8 +6,12 @@ import Input from "../components/Input";
 
  export default function Page() {
     const [quest, setQuest] = useState<string>('')
-    const [messages, setMessages] = useState<String[]>([''])
-    const [isGenerating, setIsGenerating] = useState<boolean>(false);
+    const [messages, setMessages] = useState<Array<{role: string; content: string}>>([{
+        role: "",
+        content: ""
+    }])
+
+    // const [messages, setMessages] = useState<String[]>([''])
     const [prompts, setPrompts] = useState<Array<{key: string, prompt: string}>>([
         {
             key: '',
@@ -35,8 +39,8 @@ import Input from "../components/Input";
     }, [messages])
 
     return (
-        <div className="bg-cream-a w-screen min-h-screen p-16">
-            <div className="mt-8 relative w-full mx-auto space-y-4 pb-14">
+        <div className="bg-cream-a w-screen min-h-screen p-8 md:p-16">
+            <div className="mt-0 md:mt-8 relative w-full mx-auto space-y-4 pb-20 md:pb-14">
                 {messages.map((message, index) => (
                     <div
                         key={index}

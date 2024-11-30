@@ -19,7 +19,7 @@ const menus = [
         title: 'Pomodoro for deep focus',
         width: 320,
         position: 'self-end',
-        link: '/planning-travel-doang-berangkat-kaga'
+        link: ''
     },
     {
         color: '#E75F4C',
@@ -27,7 +27,7 @@ const menus = [
         title: 'Feeling sad? You got my back, dude',
         width: 250,
         position: '',
-        link: '/planning-travel-doang-berangkat-kaga'
+        link: ''
     },
     {
         color: '#ECC7EF',
@@ -43,7 +43,7 @@ const menus = [
         title: "Catch up today's news",
         width: 300,
         position: '',
-        link: '/planning-travel-doang-berangkat-kaga'
+        link: ''
     },
     {
         color: '#F3EAE2',
@@ -59,33 +59,36 @@ export default function Home() {
     const router = useRouter();
     const [activeBox, setActiveBox] = useState<number | null>(null);
 
-    const handleClick = (id: number, href: string) => {
-        setActiveBox(id);
-        setTimeout(() => {
-            router.push(href);
-        }, 400);
-    };
+	const handleClick = (id: number, href: string) => {
+		if (href) {
+			setActiveBox(id);
+			setTimeout(() => {
+				router.push(href);
+			}, 400);
+		}
+	};
 
     return (
-        <div className="w-screen h-screen overflow-hidden font-[family-name:var(--font-geist-sans)]">
+        <div className="w-screen min-h-screen md:h-screen overflow-hidden font-[family-name:var(--font-geist-sans)]">
             <main className="flex w-full h-full">
-                <div className="w-full grid grid-cols-3">
+                <div className="w-full grid grid-cols-1 md:grid-cols-3">
                 {menus.map((menu, id) => (
                     <div
                     key={id}
                     onClick={() => handleClick(id, menu.link)}
-                    className={`grid place-items-center h-full w-full relative transition-transform duration-[1500ms] cursor-pointer ${
+                    className={`grid place-items-center h-full w-full relative transition-transform duration-[1500ms] cursor-pointer p-8 md:p-0
+					${
                         activeBox === id ? 'scale-[50] rounded-full z-50' : ''
                     }`}
                     style={{ backgroundColor: menu.color }}
                     >
-                    <p className={`text-xl text-gray-800 ${activeBox === id ? 'hidden' : 'block'}`}>{menu.title}</p>
+                    <p className={`text-xl text-gray-800 text-center ${activeBox === id ? 'hidden' : 'block'}`}>{menu.title}</p>
                     <Image
                         src={menu.icon}
                         alt={menu.icon}
                         width={menu.width}
                         height={150}
-                        className={`${menu.position} ${activeBox === id ? 'hidden' : 'block'}`}
+                        className={`${menu.position} ${activeBox === id ? 'hidden' : 'block'} scale-75 md:scale-100`}
                     />
                     </div>
                 ))}
